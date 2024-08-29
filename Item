@@ -1,0 +1,32 @@
+public class Item implements AbstractItem {
+    private String name;
+    private double price;
+    private int quantity;
+
+    public Item(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }//end Item
+
+    @Override
+    public String getName() {
+        return name;
+    }//end getName
+
+    @Override
+    public double getItemPrice() {
+        return price;
+    }//end getItemPrice
+
+    @Override
+    public int getItemQuantity() {
+        return quantity;
+    }//end getItemQuantity
+
+    @Override
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }//end setQuantity
+    
+}//end class
