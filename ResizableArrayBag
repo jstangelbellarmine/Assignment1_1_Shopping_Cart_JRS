@@ -281,4 +281,3 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
  
  The bag contains 0 string(s), as follows:
  */
-
