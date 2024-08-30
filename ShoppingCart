@@ -7,64 +7,92 @@ ShoppingCart that can hold multiple Items, even of the same type.
 
 public class ShoppingCart implements AbstractShoppingCart {
 
-    private ResizableArrayBag<AbstractItem> cart;
-    private boolean hasCoupon;
-    private double couponValue;
-
+    private ResizableArrayBag<AbstractItem> carrito;
+ 
+    /**
+     * Creates a ShoppingCart with default parameters.
+     */
     public ShoppingCart() {
-        cart = new ResizableArrayBag<>();
-        hasCoupon = false;
-        couponValue = 0.0;
+        carrito = new ResizableArrayBag<>();
+
     }//end empty-argument constructor
 
+    /**
+     * Task: states using true/false is shopping cart is empty.
+     * @return: boolean result of true if empty, false is otherwise
+     */
     @Override
     public boolean isEmpty() {
-        return cart.isEmpty();
+        return carrito.isEmpty();
     }//end isEmpty
 
+    /**
+     * Task: Decides whether the shopping cart contains an item.
+     * @return: boolean result of true if item is in shoppingcart, false is otherwise
+     */
     @Override
     public boolean containsItem(AbstractItem item) {
-        return cart.contains(item);
+        return carrito.contains(item);
     }//end containsItem
 
+    /**
+     * Task: measures the number of items in the shoppingcart.
+     * @return: integer number of items in shoppingcart
+     */
     @Override
     public int getNumItems() {
-        return cart.getCurrentSize();
+        return carrito.getCurrentSize();
     }//end getNumItems
 
+    /**
+     * Task: adds item to shoppingcart.
+     */
     @Override
     public void addItem(AbstractItem item) {
-        cart.add(item);
+        carrito.add(item);
     }//end addItem
 
+    /**
+     * Task: removes a specific item from the shoppingcart.
+     */
     @Override
     public void removeItem(AbstractItem item) {
-        cart.remove(item);
+        carrito.remove(item);
     }//end removeItem
-
+    
+    /**
+     * Task: removes all items from the shoppingcart.
+     */
     @Override
-    public void emptyCart() {
-        cart.clear();
-    }//end emptyCart
+    public void emptyCarrito() {
+        carrito.clear();
+    }//end emptyCarrito
 
+    /**
+     * Task: adds prices for all items in the shopping cart.
+     * @return price of all items totaled
+     * @param price must be at least 0. It it's below 0, price set to 0.
+     */
     @Override
     public double getTotalPrice() {
         double totalPrice = 0.0;
-        AbstractItem[] items = cart.toArray();
-        for (AbstractItem item : items) {
+        AbstractItem[] items = carrito.toArray();
+        for (AbstractItem item : items) 
+        {
             totalPrice += item.getItemPrice() * item.getItemQuantity();
         }
-        if (hasCoupon) {
-            totalPrice -= couponValue;
-        }
-        return Math.max(totalPrice, 0.0);  // Ensure totalPrice doesn't go below 0
+        return Math.max(totalPrice, 0.0);  
     }//end getTotalPrice
 
+    /**
+     * Task: puts all items in an Array.
+     */
     @Override
     public void displayItemList() {
-        AbstractItem[] items = cart.toArray();
-        System.out.println("Item List:");
-        for (AbstractItem item : items) {
+        AbstractItem[] items = carrito.toArray();
+        System.out.println("Items in this shopping cart:");
+        for (AbstractItem item : items)
+        {
             System.out.println("Name: " + item.getName() + ", Price: " + item.getItemPrice() + ", Quantity: " + item.getItemQuantity());
         }
     }//end displayItemList
