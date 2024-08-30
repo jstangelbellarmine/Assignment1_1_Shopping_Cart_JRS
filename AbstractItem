@@ -1,32 +1,26 @@
-//~~~~~~~~~~~Programmer's Notes~~~~~~~~~~~//
-//This ABT interface defines the operation
-//of an Item class creates item objects that 
-//work with a Shopping Cart Interface. 
-//
-//Implementation Observation: (8/28/24-8:44)
-//My original item class did not have a 
-//(int quantity) method so I have to add that 
-//to make ShoppingCart class work.
-////~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
+/**
+This ABT interface defines the operation of an specific item
+that can be collected by a ShoppingCart class.
+@author John R. Stangel
+@version 2.0
+*/
 
 public interface AbstractItem {
 	
-	/**Task: get the name for the item specified.
-	  *@return the String name of specified item*/
-	public String getName();
-	
-	/**Task: get the price for the item specified.
-	 *@return the double price of specified item */
-	public double getItemPrice();
-	
-	/**Task: get the item quantity for item. 
-	 * @return the number of a specific item*/
-	public int getItemQuantity();
-	
-	/**Task: set the quantity of an item.*/
-	public void setQuantity();
-	
-	/**Task: set the quantity of items*/
-	public void setQuantity(int quantity);
-}
+    /** Task: get the name for the item specified.
+     * @return the String name of the specified item*/
+    public String getName();
+
+    /** Task: get the price for the item specified.
+     * @return the double price of the specified item */
+    public double getItemPrice();
+
+    /** Task: get the item quantity for the item.
+     * @return the number of a specific item */
+    public int getItemQuantity();
+
+    /** Task: set the quantity of an item.
+     * @param quantity the new quantity of the item */
+    public void setQuantity(int quantity);
+
+}//end class
