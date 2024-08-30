@@ -1,50 +1,41 @@
-//~~~~~~~~~~~Programmer's Notes~~~~~~~~~~~//
-//This ABT interface defines the operation
-//of a Shopping Cart that contains items from
-//an accompanying Item interface. 
-////~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+/**
+This ABT interface defines the operation
+of a Shopping Cart that contains items from
+an accompanying Item interface. 
+@author John R. Stangel
+@version 2.0
+*/
 
 public interface AbstractShoppingCart {
-		
-		/**Task: check to see if the shopping cart is empty. 
-		@return true if cart is empty, false if not*/
-		public boolean isEmpty();
-		
-		/**Task: check to see if specified item is in shopping cart.
-		 @return true if item is in shopping cart or false if not. 
-		 */
-	    public boolean containsItem();
-	    
-	    /**Task: measure the number of items in the shopping cart. 
-	     @return numItems*/
-	    public int getNumItems();
-	    
-	    /**Task: add an item to the shopping cart.
-	     */
-	    public void addItem(AbstractItem item);
-	    
-	    /**Task: remove a specific item from the shopping cart.
-	    */
-	    public void removeItem(AbstractItem item);
-	    
-	    /**Task: remove all items from the shopping cart. 
-	     */
-	    public void emptyCart();
-	    
-	    /**Task: Add up the price for all items in the shopping cart.
-	     @return the price of all items in the shopping cart*/
-	    public double getTotalPrice();
-	    
-	    /**Task: print out the Item array list of items.
-		*/
-	    public void displayItemList();
-	    
-	    /**Task: check for coupon
-	    @return yes if true or no if false*/
-	    public boolean hasCoupon();
-	    
-	    /**Task: subtracts specified amount from total price.
-	     @when hasCoupon = yes, subtract coupon value from TotalPrice*/
-	    public void applyCoupon(Coupon coupon);
-	    
-}//end interface
+    
+    /** Task: check to see if the shopping cart is empty. 
+     * @return true if cart is empty, false if not */
+    public boolean isEmpty();
+    
+    /** Task: check to see if specified item is in shopping cart.
+     * @param item the item to check for
+     * @return true if item is in shopping cart or false if not. */
+    public boolean containsItem(AbstractItem item);
+    
+    /** Task: measure the number of items in the shopping cart.
+     * @return the number of items */
+    public int getNumItems();
+    
+    /** Task: add an item to the shopping cart.
+     * @param item the item to add */
+    public void addItem(AbstractItem item);
+    
+    /** Task: remove a specific item from the shopping cart.
+     * @param item the item to remove */
+    public void removeItem(AbstractItem item);
+    
+    /** Task: remove all items from the shopping cart. */
+    public void emptyCarrito();
+    
+    /** Task: Add up the price for all items in the shopping cart.
+     * @return the total price of all items in the shopping cart */
+    public double getTotalPrice();
+    
+    /** Task: print out the Item array list of items. */
+    public void displayItemList();
+}//end class
