@@ -1,0 +1,28 @@
+/**
+This BagInterface is used in conjunction with other classes to create
+a ShoppingCart Object filled with Item Objects.
+@author John R. Stangel
+@version 1.0
+*/
+
+public interface BagInterface<T> {
+	
+	
+    boolean add(T newEntry);
+    
+    T[] toArray();
+    
+    boolean isEmpty();
+    
+    int getCurrentSize();
+    
+    int getFrequencyOf(T anEntry);
+    
+    boolean contains(T anEntry);
+    
+    void clear();
+    
+    T remove();
+    
+    boolean remove(T anEntry);
+}
