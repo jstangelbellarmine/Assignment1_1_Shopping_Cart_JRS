@@ -1,0 +1,72 @@
+/**
+This ShoppingCart class includes methods that are used to create a
+ShoppingCart that can hold multiple Items, even of the same type. 
+@author John R. Stangel
+@version 1.0
+*/
+
+public class ShoppingCart implements AbstractShoppingCart {
+
+    private ResizableArrayBag<AbstractItem> cart;
+    private boolean hasCoupon;
+    private double couponValue;
+
+    public ShoppingCart() {
+        cart = new ResizableArrayBag<>();
+        hasCoupon = false;
+        couponValue = 0.0;
+    }//end empty-argument constructor
+
+    @Override
+    public boolean isEmpty() {
+        return cart.isEmpty();
+    }//end isEmpty
+
+    @Override
+    public boolean containsItem(AbstractItem item) {
+        return cart.contains(item);
+    }//end containsItem
+
+    @Override
+    public int getNumItems() {
+        return cart.getCurrentSize();
+    }//end getNumItems
+
+    @Override
+    public void addItem(AbstractItem item) {
+        cart.add(item);
+    }//end addItem
+
+    @Override
+    public void removeItem(AbstractItem item) {
+        cart.remove(item);
+    }//end removeItem
+
+    @Override
+    public void emptyCart() {
+        cart.clear();
+    }//end emptyCart
+
+    @Override
+    public double getTotalPrice() {
+        double totalPrice = 0.0;
+        AbstractItem[] items = cart.toArray();
+        for (AbstractItem item : items) {
+            totalPrice += item.getItemPrice() * item.getItemQuantity();
+        }
+        if (hasCoupon) {
+            totalPrice -= couponValue;
+        }
+        return Math.max(totalPrice, 0.0);  // Ensure totalPrice doesn't go below 0
+    }//end getTotalPrice
+
+    @Override
+    public void displayItemList() {
+        AbstractItem[] items = cart.toArray();
+        System.out.println("Item List:");
+        for (AbstractItem item : items) {
+            System.out.println("Name: " + item.getName() + ", Price: " + item.getItemPrice() + ", Quantity: " + item.getItemQuantity());
+        }
+    }//end displayItemList
+
+}//end class
