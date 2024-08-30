@@ -1,3 +1,10 @@
+/**
+This Item class includes method that are used to create an Item. 
+Several Item Objects can be held in a ShoppingCart. 
+@author John R. Stangel
+@version 1.0
+*/
+
 public class Item implements AbstractItem {
     private String name;
     private double price;
@@ -28,5 +35,6 @@ public class Item implements AbstractItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }//end setQuantity
-    
+
 }//end class
+
