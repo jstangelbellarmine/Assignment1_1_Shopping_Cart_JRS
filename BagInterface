@@ -7,22 +7,59 @@ a ShoppingCart Object filled with Item Objects.
 
 public interface BagInterface<T> {
 	
-	
-    boolean add(T newEntry);
+	/**
+	 * Task: adds new entry to Object.
+	 * @param newEntry
+	 */
+    public boolean add(T newEntry);
     
-    T[] toArray();
+    /**
+     * Task: turns content of T to an array.
+     */
+    public T[] toArray();
     
-    boolean isEmpty();
+    /**
+     * Task: ascertains whether something is empty.
+     * @retun true if it's empty or false if otherwise.
+     */
+    public boolean isEmpty();
     
-    int getCurrentSize();
+    /**
+     * Task: measures the size of a specific object.
+     * @return the current size of items
+     */
+    public int getCurrentSize();
     
-    int getFrequencyOf(T anEntry);
+    /**
+     * Task: counts the number of similar items in the shoppingcart
+     * @param anEntry
+     * @returns the number of times an object is present
+     */
+    public int getFrequencyOf(T anEntry);
     
-    boolean contains(T anEntry);
+    /**
+     * Task: ascertain if a specified item is in the bag.
+     * @param anEntry
+     * @return true is item is in the shoppingcart, false if it is not
+     */
+    public boolean contains(T anEntry);
     
+    /**
+     * Task: take out all items from the shoppingcart.
+     * @return an empty shoppingcart
+     */
     void clear();
     
+    /**
+     * Task: removes a specific item from the shopping cart
+     * @return
+     */
     T remove();
     
+    /**
+     * Task: takes a specific item out of the ShoppingCart.
+     * @param anEntry
+     * @return true is successful, false if not
+     */
     boolean remove(T anEntry);
 }
