@@ -12,20 +12,20 @@ public class ResizableArrayBagDemo
       BagInterface<String> aBag = new ResizableArrayBag<>(3);
       testIsEmpty(aBag, true);
       
-		System.out.println("Adding to the bag more strings than its initial capacity.");
-      String[] contentsOfBag = {"A", "D", "B", "A", "C", "A", "D"};
+		System.out.println("Adding to the shoppingcart more items than its initial capacity.");
+      String[] contentsOfBag = {"Apple", "Donut", "Bread", "Apple", "Carrot", "Apple", "Donut"};
 		testAdd(aBag, contentsOfBag);
 
       testIsEmpty(aBag, false);
-      String[] testStrings2 = {"A", "B", "C", "D", "Z"};
+      String[] testStrings2 = {"Apple", "Bread", "Carrot", "Donut", "Zucchini"};
       testFrequency(aBag, testStrings2);
       testContains(aBag, testStrings2);
 		
       // Removing strings
-		String[] testStrings3 = {"", "B", "A", "C", "Z"};
+		String[] testStrings3 = {"", "Bread", "Apple", "Carrot", "Zucchini"};
       testRemove(aBag, testStrings3);
 
-		System.out.println("\nClearing the bag:");
+		System.out.println("\nClearing the shoppingcart:");
 		aBag.clear();
       testIsEmpty(aBag, true);
 		displayBag(aBag);
@@ -34,7 +34,7 @@ public class ResizableArrayBagDemo
    // Tests the method add.
 	private static void testAdd(BagInterface<String> aBag, String[] content)
 	{
-		System.out.print("Adding to the bag: ");
+		System.out.print("Adding to the shoppingcart: ");
 		for (int index = 0; index < content.length; index++)
 		{
 			aBag.add(content[index]);
@@ -54,14 +54,14 @@ public class ResizableArrayBagDemo
          if (aString.equals("") || (aString == null))
          {
             // Test remove()
-            System.out.println("\nRemoving a string from the bag:");
+            System.out.println("\nRemoving an item from the shoppingcart:");
             String removedString = aBag.remove();
             System.out.println("remove() returns " + removedString);
          }
          else
          {
             // Test remove(aString)
-            System.out.println("\nRemoving \"" + aString + "\" from the bag:");
+            System.out.println("\nRemoving \"" + aString + "\" from the shoppingcart:");
             boolean result = aBag.remove(aString);
             System.out.println("remove(\"" + aString + "\") returns " + result);
          } // end if
@@ -76,11 +76,11 @@ public class ResizableArrayBagDemo
 	{
       System.out.print("Testing isEmpty with ");
       if (correctResult)
-         System.out.println("an empty bag:");
+         System.out.println("an empty shoppingcart:");
       else
-         System.out.println("a bag that is not empty:");
+         System.out.println("a shoppingcart that is not empty:");
       
-      System.out.print("isEmpty finds the bag ");
+      System.out.print("isEmpty finds the shopping cart ");
       if (correctResult && aBag.isEmpty())
 			System.out.println("empty: OK.");
 		else if (correctResult)
@@ -97,8 +97,8 @@ public class ResizableArrayBagDemo
 	{
  		System.out.println("\nTesting the method getFrequencyOf:");
       for (int index = 0; index < tests.length; index++)
-         System.out.println("In this bag, the count of " + tests[index] + 
-                            " is " + aBag.getFrequencyOf(tests[index]));
+         System.out.println("In this shoppingcart, there is/are " + aBag.getFrequencyOf(tests[index])
+         				+ " " + tests[index] + "(s)");
    } // end testFrequency
    
    // Tests the method contains.
@@ -106,15 +106,15 @@ public class ResizableArrayBagDemo
 	{
  		System.out.println("\nTesting the method contains:");
       for (int index = 0; index < tests.length; index++)
-         System.out.println("Does this bag contain " + tests[index] + 
+         System.out.println("Does this shoppingcart contain " + tests[index] + 
                             "? " + aBag.contains(tests[index]));
    } // end testContains
 
    // Tests the method toArray while displaying the bag.
 	private static void displayBag(BagInterface<String> aBag)
 	{
-		System.out.println("The bag contains " + aBag.getCurrentSize() +
-		                   " string(s), as follows:");		
+		System.out.println("The shoppingcart contains " + aBag.getCurrentSize() +
+		                   " items, as follows:");		
 		Object[] bagArray = aBag.toArray();
 		for (int index = 0; index < bagArray.length; index++)
 		{
