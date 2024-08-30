@@ -3,6 +3,7 @@
     @author Timothy M. Henry
     @version 5.0
 */
+
 public class ResizableArrayBagDemo
 {
 	public static void main(String[] args) 
