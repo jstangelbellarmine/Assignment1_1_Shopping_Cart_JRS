@@ -10,27 +10,49 @@ public class Item implements AbstractItem {
     private double price;
     private int quantity;
 
+    /**
+     * Task: creates Item object and sets defaults parameters. 
+     * @param name
+     * @param price
+     * @param quantity
+     */
     public Item(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
     }//end Item
-
+    
+    /**
+     * Task: gets name for current Item Object
+     * @return name
+     */
     @Override
     public String getName() {
         return name;
     }//end getName
 
+    /**
+     * Task: gets the price for the current Item Object
+     * @return price
+     */
     @Override
     public double getItemPrice() {
         return price;
     }//end getItemPrice
 
+    /**
+     * Task: gets the quantity of a specific Item Object
+     * @return quantity
+     */
     @Override
     public int getItemQuantity() {
         return quantity;
     }//end getItemQuantity
 
+    /**
+     * Task: sets quantity of a specific Item Object
+     * @parameter quantity is an integer
+     */
     @Override
     public void setQuantity(int quantity) {
         this.quantity = quantity;
